@@ -8,7 +8,7 @@ SortedVectorsIterState = Vector{Union{Int64,Nothing}}
 
 """
 Initializes iterator over sorted vectors
-
+Returns tuple of (idx_of_vector, idx_of_element, element, next_state)
 # Arguments
 - `vectors::SortedVectors`: vector sorted in ascending order
 """
