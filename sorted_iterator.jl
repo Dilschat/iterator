@@ -6,8 +6,14 @@ end
 
 SortedVectorsIterState = Vector{Union{Int64,Nothing}}
 
-Base.iterate(arrays::SortedVectors) =
-    iterate(arrays, SortedVectorsIterState(ones(length(arrays.data))))
+"""
+Initializes iterator over sorted vectors
+
+# Arguments
+- `vectors::SortedVectors`: vector sorted in ascending order
+"""
+Base.iterate(vectors::SortedVectors) =
+    iterate(vectors, SortedVectorsIterState(ones(length(vectors.data))))
 
 function Base.iterate(vectors::SortedVectors, state::SortedVectorsIterState)
     element, data_idx = @pipe zip(state, vectors.data) |>
